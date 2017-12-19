@@ -31,16 +31,16 @@ const movies = [
 	},
 ];
 
-app.get('/movies', (req, res) => {
+app.get('/api/movies', (req, res) => {
 	res.send(movies);
 });
 
-app.get('/movies/:id', (req, res) => {
+app.get('/api/movies/:id', (req, res) => {
 	const movie = movies.filter(movie => movie.id.toString() === req.params.id)[0];
 	res.send(movie);
 });
 
-app.post('/new-movie', (req, res) => {
+app.post('/api/movies', (req, res) => {
 	if (req.body.id !== undefined) movies.push(req.body);
 	res.send(movies);
 });
